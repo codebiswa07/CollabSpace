@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    @apply bg-ink-950 text-white font-body;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,245,212,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(177,79,255,0.05) 0%, transparent 60%);
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-ink-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-ink-600 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-neon-cyan/50; }
+}
+
+@layer components {
+  .glass {
+    @apply bg-ink-800/60 backdrop-blur-md border border-white/5;
+  }
+  .glass-hover {
+    @apply hover:bg-ink-700/60 hover:border-white/10 transition-all duration-200;
+  }
+  .neon-border {
+    border: 1px solid rgba(0, 245, 212, 0.3);
+    box-shadow: 0 0 15px rgba(0, 245, 212, 0.1), inset 0 0 15px rgba(0, 245, 212, 0.03);
+  }
+  .btn-primary {
+    @apply bg-neon-cyan text-ink-950 font-display font-semibold px-6 py-3 rounded-xl 
+           hover:shadow-lg hover:shadow-neon-cyan/30 transition-all duration-200
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply glass glass-hover text-white/80 hover:text-white font-body px-5 py-2.5 rounded-xl
+           transition-all duration-200 active:scale-95;
+  }
+  .input-field {
+    @apply glass w-full px-4 py-3 rounded-xl text-white placeholder-white/30
+           focus:outline-none focus:neon-border transition-all duration-200
+           font-mono text-sm;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono;
+  }
+}
+
+/* Quill Editor Overrides */
+.ql-toolbar.ql-snow {
+  background: rgba(26, 26, 38, 0.8) !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  padding: 10px 16px !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.ql-container.ql-snow {
+  border: none !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 16px !important;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.ql-editor {
+  padding: 32px 48px !important;
+  color: rgba(255,255,255,0.9) !important;
+  line-height: 1.8 !important;
+  min-height: 100% !important;
+  caret-color: #00f5d4;
+}
+
+.ql-editor.ql-blank::before {
+  color: rgba(255,255,255,0.2) !important;
+  font-style: normal !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.ql-snow .ql-stroke { stroke: rgba(255,255,255,0.6) !important; }
+.ql-snow .ql-fill { fill: rgba(255,255,255,0.6) !important; }
+.ql-snow .ql-picker { color: rgba(255,255,255,0.6) !important; }
+.ql-snow .ql-picker-options {
+  background: #1a1a26 !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 8px !important;
+}
+.ql-snow button:hover .ql-stroke,
+.ql-snow button.ql-active .ql-stroke { stroke: #00f5d4 !important; }
+.ql-snow button:hover .ql-fill,
+.ql-snow button.ql-active .ql-fill { fill: #00f5d4 !important; }
+.ql-snow .ql-picker:hover .ql-picker-label { color: #00f5d4 !important; }
+
+@media (max-width: 768px) {
+  .ql-editor { padding: 20px 20px !important; font-size: 15px !important; }
+  .ql-toolbar.ql-snow { padding: 8px !important; }
+}
+
+.ql-editor {
+  color: #000 !important;
+  background: #fff !important;
+}
+
+.ql-editor * {
+  color: unset;
+}
