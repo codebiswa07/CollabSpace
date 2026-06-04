@@ -7,7 +7,7 @@ import DocumentEditor from "../components/DocumentEditor";
 import Whiteboard from "../components/Whiteboard";
 import UserPresence from "../components/UserPresence";
 import EditorHeader from "../components/EditorHeader";
-import VersionHistory from "../components/VersionHistory";
+import VersionHistory from "../components/Versionhistory";
 
 export default function RoomPage() {
   const { roomId } = useParams();
