@@ -12,7 +12,7 @@ const app = express();
 const server = http.createServer(app);
 
 // ─── CORS ─────────────────────────────────────────────────────────────────────
-const allowedOrigins = (process.env.CLIENT_URL || "http://localhost:5173").split(",");
+const allowedOrigins = ("https://project-acts9.vercel.app" || "http://localhost:5173").split(",");
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(express.json({ limit: "2mb" }));
 
